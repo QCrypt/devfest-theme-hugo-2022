@@ -2,7 +2,7 @@
 	<div class="bottom-content">
 
 		<div class="footer-header">
-			<div class="share">
+			<!-- <div class="share">
 				<header>{{ i18n "footer_share" }}</header>
 				<ul class="social-list">
 					{{ range .Site.Data.footer.share }}
@@ -11,13 +11,13 @@
 						{{ partial "social-sharer.html" (dict "context" . "url" $url "name" .name) }}
 						{{ end }}
 				</ul>
-			</div>
-			<div class="blog">
+			</div> -->
+			<!-- <div class="blog">
 				<header>
 					{{ i18n "footer_follow_blog" }} <a href="{{ "blog/" | relLangURL }}">{{ i18n "footer_follow_blog_blog" }}</a>
 				</header>
-			</div>
-			<div class="follow">
+			</div> -->
+			<!-- <div class="follow">
 				<header>{{ i18n "footer_follow_us" }}</header>
 				<ul class="social-list">
 					{{ range .Site.Data.footer.follow }}
@@ -29,7 +29,7 @@
 					</li>
 					{{ end }}
 				</ul>
-			</div>
+			</div> -->
 			<div class="email">
 				<a href="mailto:{{ .Site.Params.email }}">
 					{{ partial "icon.html" "email" }}

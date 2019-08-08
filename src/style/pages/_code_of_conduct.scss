@@ -11,12 +11,8 @@
   .content {
 
     p {
-      margin-left: var(--space-4);
+      margin-left: 0;
       text-align: justify;
-
-      &::first-letter {
-        margin-left: var(--space-4);
-      }
     }
 
     ul {
