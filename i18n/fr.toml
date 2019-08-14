@@ -61,6 +61,10 @@ other = "Proposition de partenariat"
 [footer_coc]
 other = "Code de conduite"
 
+[footer_charter]
+other = "QCrypt Charter"
+
+
 ################
 # Subscription #
 ################
