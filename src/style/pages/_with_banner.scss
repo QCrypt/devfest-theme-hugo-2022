@@ -1,4 +1,5 @@
 main > .with_banner {
+
   .hero {
     position: relative;
     .img {
@@ -16,8 +17,8 @@ main > .with_banner {
       max-width: var(--theJdrSize);
       margin: 0 auto;
       color: var(--primary-txt);
-      padding-left: 0;
-      padding-right: 0;
+      // padding-left: 2rem var(--container-margin);
+      // padding-right: 2rem var(--container-margin);
       margin: 0;
       font-size: 3rem;
       small {
@@ -45,64 +46,4 @@ main > .with_banner {
     }
   }
 
-  h1,
-  .content {
-    max-width: var(--theJdrSize);
-    margin: 0 auto;
-  }
-
-  .content {
-    padding-left: 0;
-    padding-right: 0;
-
-    @include mq($until: md) {
-      margin: 1rem;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    .centered-img {
-      text-align: center;
-      margin: var(--space-3) 0;
-    }
-
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: var(--primary);
-      font-style: normal;
-      font-weight: 400;
-    }
-
-    h2,
-    h3 {
-      margin-top: 1.25rem; // 10px
-      margin-bottom: 0.625rem; // 10px
-    }
-
-    h4,
-    h5,
-    h6 {
-      margin-top: 0.625rem; // 10px
-      margin-bottom: 0.625rem; // 10px
-    }
-
-    p {
-      text-align: justify;
-      margin-bottom: 1.5rem;
-      line-height: 1.7rem;
-    }
-
-    ul {
-      margin-left: 1rem;
-
-      li {
-        line-height: 1.7rem;
-      }
-    }
-  }
 }
