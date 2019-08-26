@@ -23,9 +23,9 @@
       display: flex;
     }
 
-    @include mq($until: md) {
-      text-align: center;
-    }
+    // @include mq($until: md) {
+    //   text-align: center;
+    // }
 
     .inner {
       flex: 1 1 auto;
@@ -187,7 +187,9 @@
   .home main .info .numbers {
     justify-content: center;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    @include mq($from: sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }
 
