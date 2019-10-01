@@ -78,9 +78,11 @@
 
 		<div class="footer-footer">
 			{{ if .Site.Params.logos.footer }}
+			<a href="{{ .Site.Params.logos.footer_link }}" target="_blank">
 			<img src="{{ .Site.Params.logos.footer }}" alt="{{ .Site.Title }}">
+			</a>
 			{{ end }}
-			<div>{{ emojify .Site.Params.copyright }}</div>
+			<div><a href="{{ .Site.Params.copyright_link }}" target="_blank">{{ emojify .Site.Params.copyright }}</a></div>
 		</div>
 
 	</div>
