@@ -64,6 +64,8 @@ other = "Code of Conduct"
 [footer_charter]
 other = "QCrypt Charter"
 
+[footer_previous_confs]
+other = "Previous Conferences"
 
 ################
 # Subscription #
