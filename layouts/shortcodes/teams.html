@@ -8,7 +8,7 @@
 
 	<h2>{{ $label }}</h2>
 
-	<ul class="members shuffle">
+	<ul class="members">
 		{{ range where $site.AllPages "Params.type" $type }}
 		<li>{{ partial "team.html" . }}</li>
 		{{ end }}
