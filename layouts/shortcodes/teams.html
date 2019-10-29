@@ -8,8 +8,8 @@
 
 	<h2>{{ $label }}</h2>
 
-	<ul class="members sort">
-		{{ range where $site.AllPages "Params.type" $type }}
+	<ul class="members">
+		{{ range sort (where $site.AllPages "Params.type" $type) ".Params.surname"}}
 		<li>{{ partial "team.html" . }}</li>
 		{{ end }}
 	</ul>
