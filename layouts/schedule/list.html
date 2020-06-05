@@ -20,8 +20,9 @@
 
 {{ $maxEnd := $.Scratch.Get "maxEnd" }}
 
-<section class="schedule">
 
+
+<section class="schedule">
 	{{ range $day := $.Site.Data.schedule }}
 	{{ $time := split $day.start ":" }}
 	{{ $dayStartH := index $time 0 }}
@@ -30,51 +31,27 @@
 	{{ $dayEndH := index $time 0 }}
 	{{ $dayEndM := index $time 1 }}
 
-	<article id="day_{{$day.day}}" class="day"
-	         style="--rooms: {{ len .rooms }}; --end: {{ $maxEnd }};">
+	<article id="day_{{$day.day}}" class="day">
 
-		<h2>{{- partial "date-long.html" (dict "time" .day "lang" $lang) }}</h2>
+		<ul class="talks">
+			{{ range $session := $day.sessions }}
+			{{ $sessionPage := $.Site.GetPage (path.Join "/sessions" $session.session) }}
+			{{ $time := split $session.time ":" }}
+			{{ $hh := index $time 0 }}
+			{{ $mm := index $time 1 }}
 
-		{{ with (index .rooms 0) }}
-		{{ range .slots }}
-		{{ $slot := index (where $.Site.Data.slots "key" .slot) 0 }}
-		{{ $time := split $slot.start ":" }}
-		{{ $hh := index $time 0 }}
-		{{ $mm := index $time 1 }}
-		<div class="slot" style="--duration: {{ $slot.duration }}; --row-start: {{ $slot.row.start }}; --row-end: {{ $slot.row.end }};">
-			<span class="hh">{{ $hh }}</span>
-			<span class="mm">{{ $mm }}</span>
-		</div>
-		{{ end }}
-		{{ end }}
 
-		{{ range $index, $room := .rooms }}
-		{{ range where (where $.Site.Data.rooms "key" $room.room) "skip" "!=" true }}
-		<!-- Room {{ $room.room }} -->
-		<div class="room {{ if (modBool $index 2)}}even{{end}}" style="--room: {{ $index }};">
-			<h3>{{ .label }}</h3>
-		</div>
+				<div class="session tag-{{ anchorize (delimit ($sessionPage.Params.tags | default (slice)) " " ) }}">
+					<span class="startt">
+						<span class="hh">{{ $hh }}</span>
+						<span class="mm">{{ $mm }}</span>
+					</span>
+					{{ partial "schedule-session" $sessionPage }}
+				</div>
 
-		{{ range $room.slots }}
-		{{ $sessionPage := $.Site.GetPage (path.Join "/sessions" .talk) }}
-		{{ $slot := index (where $.Site.Data.slots "key" .slot) 0 }}
-		{{ $time := split $slot.start ":" }}
-		{{ $hh := index $time 0 }}
-		{{ $mm := index $time 1 }}
-		<div class="session tag-{{ anchorize (delimit ($sessionPage.Params.tags | default (slice)) " " ) }}"
-		style="--room: {{ $index }}; --row-start: {{ $slot.row.start }}; --row-end: {{ $slot.row.end }};">
 
-		<span class="start">
-			<span class="hh">{{ $hh }}</span>
-			<span class="mm">{{ $mm }}</span>
-		</span>
-		{{ partial "schedule-session" $sessionPage }}
-
-		</div>
-		{{ end }}
-		<!-- End room {{ $room.room }} -->
-		{{ end }}
-		{{ end }}
+			{{ end }}
+		</ul>
 
 	</article>
 	{{ end }}

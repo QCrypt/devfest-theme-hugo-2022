@@ -1,6 +1,7 @@
 {{ define "main" }}
 <section class="talk">
 
+	{{ if.Params.tags }}
 	<header class="tag-{{ anchorize (delimit .Params.tags "" ) }}">
 	<div class="tags">
 		{{ range .Params.tags }}
@@ -9,21 +10,27 @@
 			{{ end }}
 		{{ end }}
 	</div>
+	{{ else }}
+	<header>
+	{{ end }}
 
 	<h1 class="text">{{ .Title }}</h1>
 	<span class="language {{ anchorize .Params.language }}"></span>
 	</header>
 
 	<div class="info">
+		{{ if .Params.level }}
 		<div class="complexity">{{ .Params.level }}</div>
-		<div class="type type-{{ anchorize .Params.talkType }}">{{ .Params.talkType }}</div>
+		{{ end }}
+		<div class="type type-{{ anchorize .Params.format }}">{{ .Params.format }}</div>
 
 		<div class="detail">
 			<ul class="speakers">
 				{{ range where .Site.RegularPages "Params.key" "in" .Params.speakers }}
 				<li>
-					<a class="visually-hidden" aria-hidden="true" href="/speakers/{{ .Params.key }}">{{ .Params.name }}</a>
-					<a class="speaker" href="/speakers/{{ .Params.key }}">
+
+					<a class="visually-hidden" aria-hidden="true" href="{{ .Params.website }}" target="_blank">{{ .Params.name }}</a>
+   				<a class="speaker" href="{{ .Params.website }}" target="_blank">
 						<div class="speaker-img" style="background-image: url({{ .Params.photoURL }});"></div>
 						<strong class="speaker-name">{{ .Params.name }}</strong>
 						<span class="speaker-country">{{ .Params.city }}</span>

@@ -13,6 +13,11 @@
     content: ' (' var(--duration, '') ' min.)';
   }
 
+  .type-other::after {
+    content: ''
+  }
+
+
   .speakers {
     .speaker {
       display: flex;
