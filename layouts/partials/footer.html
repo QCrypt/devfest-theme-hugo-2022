@@ -17,7 +17,7 @@
 					{{ i18n "footer_follow_blog" }} <a href="{{ "blog/" | relLangURL }}">{{ i18n "footer_follow_blog_blog" }}</a>
 				</header>
 			</div> -->
-			<!-- <div class="follow">
+			<div class="follow">
 				<header>{{ i18n "footer_follow_us" }}</header>
 				<ul class="social-list">
 					{{ range .Site.Data.footer.follow }}
@@ -29,7 +29,8 @@
 					</li>
 					{{ end }}
 				</ul>
-			</div> -->
+			</div>
+			
 			<div class="email">
 				<a href="mailto:{{ .Site.Params.email }}">
 					{{ partial "icon.html" "email" }}
