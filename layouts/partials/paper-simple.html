@@ -1,0 +1,18 @@
+<div class="paper-single">
+	<div class="paper-id">#{{ .pid }}:</div>
+	<div class="paper-title">{{ .title }}</div>
+
+	{{ $authors := .authors}}
+	<div class="paper-authors">
+		{{ range $key, $author := .authors }}
+		  {{ $author.first }} {{ $author.last }} ({{ $author.affiliation}}){{ if ne $key (sub (len $authors) 1) }};{{ else }}{{ end }}
+		{{ end }}
+	</div>
+
+	<div class="paper-abstract">
+		<a onclick="$('#abstract-{{ .pid }}').toggle(200); return false">[abstract]</a>
+		<div class="paper-abstract-full" id="abstract-{{.pid}}" style="display:none">
+			<b>Abstract:</b> {{ .abstract }}
+		</div>
+	</div>
+</div>

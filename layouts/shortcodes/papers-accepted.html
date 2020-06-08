@@ -1,0 +1,19 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+{{ $site := .Site }}
+{{ $papers := $.Site.Data.accepted_test }}
+
+<section class="papers">
+	{{/* fix as suggested in https://github.com/gohugoio/hugo/issues/6984#issuecomment-617879910 */}}
+	<div class="inner">
+		{{ .Inner }}
+	</div>
+
+	<ul class="paper-list">
+		{{ range $papers }}
+		<li>
+			{{ partial "paper-simple.html" . }}
+		</li>
+		{{ end }}
+	</ul>
+
+</section>
