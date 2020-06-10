@@ -20,6 +20,8 @@ form input {
   border-radius: var(--space-1);
   color: var(--base-text);
 
+  width: 50%;
+
   &::placeholder {
     color: var(--darken-3);
   }
@@ -31,4 +33,10 @@ form input {
   &:invalid {
     border-bottom-color: var(--color-error);
   }
+
+}
+
+#code {
+  margin-top: var(--space-4);
+  width: auto;
 }
