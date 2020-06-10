@@ -1,4 +1,7 @@
 {{ define "main" }}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <section class="talk">
 
 	{{ if.Params.tags }}
@@ -39,6 +42,21 @@
 				</li>
 				{{ end }}
 			</ul>
+
+			<ul class="paper-list">
+				{{ $papers := $.Site.Data.accepted_test }}
+			  {{ range $pid := .Params.papers }}
+				<li>
+					{{ $paper := index (where $papers "pid" (int $pid) ) 0 }}
+				  {{ partial "paper.html" $paper }}
+					{{ if isset $paper "mergedwith" }}
+	  				{{ $mergedpaper := index (where $papers "pid" $paper.mergedwith) 0 }}
+		   			merged with
+			  		{{ partial "paper.html" $mergedpaper}}
+					{{ end }}
+				</li>
+				{{ end }}
+			</ul>
 			<div class="content">{{ .Content }}</div>
 		</div>
 
@@ -58,7 +76,7 @@
 		<a class="social-slides"
 		   href="{{ .Params.presentation }}"
 		   rel="noreferrer"
-		   target="_blank">Voir les slides</a>
+		   target="_blank">See the slides</a>
 		{{ end }}
 
 	</div>

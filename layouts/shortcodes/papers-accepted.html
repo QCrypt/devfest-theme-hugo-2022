@@ -13,12 +13,12 @@
 		  {{/* display if no merge, or if the id of the paper merged with is higher than own id */}}
 			{{ if or (not (isset $paper "mergedwith")) (gt $paper.mergedwith $paper.pid) }}
   			<li>
-  			{{ partial "paper-simple.html" $paper }}
+  			{{ partial "paper.html" $paper }}
 
 				{{ if isset $paper "mergedwith" }}
   				{{ $mergedpaper := index (where $papers "pid" $paper.mergedwith) 0 }}
 	   			merged with
-		  		{{ partial "paper-simple.html" $mergedpaper}}
+		  		{{ partial "paper.html" $mergedpaper}}
 				{{ end }}
 		  	</li>
 			{{ end }}

@@ -1,0 +1,30 @@
+.paper-list {
+  list-style: decimal;
+
+  a, a:visited {
+    color: var(--primary); }
+
+  .paper-single {
+    padding: var(--space-1) var(--space-3);
+    margin: var(--space-4) 0;
+  }
+
+  .paper-id {
+    display: none;
+  }
+  .paper-title {
+    display: inline;
+    font-weight: bold;
+  }
+
+  .paper-authors {
+    display: block;
+  }
+
+  .paper-abstract {
+    ::before {
+      height: 0;
+    }
+    display: inline;
+  }
+}
