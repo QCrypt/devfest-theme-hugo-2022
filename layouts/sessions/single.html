@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ $papers := $.Site.Data.accepted_test }}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -44,7 +45,6 @@
 			</ul>
 
 			<ul class="paper-list">
-				{{ $papers := $.Site.Data.accepted_test }}
 			  {{ range $pid := .Params.papers }}
 				<li>
 					{{ $paper := index (where $papers "pid" (int $pid) ) 0 }}

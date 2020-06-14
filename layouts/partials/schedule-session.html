@@ -1,3 +1,5 @@
+{{ $papers := $.Site.Data.accepted_test }}
+
 <a href="{{ .RelPermalink }}">
 	<h4>
 		{{ .Title }}
@@ -23,7 +25,6 @@
 	</div>
 
 	<ul class="paper-list">
-		{{ $papers := $.Site.Data.accepted_test }}
 		{{ range $pid := .Params.papers }}
 		<li class="paper-short">
 			{{ $paper := index (where $papers "pid" (int $pid) ) 0 }}
