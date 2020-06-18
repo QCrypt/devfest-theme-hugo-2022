@@ -20,8 +20,10 @@
 
   --color-hero: ghostwhite;
 
-  --color-platium: #73737a;
+  --color-platinum: #73737a;
   --color-gold: #b7935b;
+  --color-silver: #c0c0c0;
+  --color-bronze: #cd7f32;
   --color-error: firebrick;
 
   --space-1: .125rem;
@@ -75,8 +77,11 @@
 
   /* Partners */
   --partner-support-height: 60px;
-  --partner-platinum-height: calc(var(--partner-support-height) * 3);
-  --partner-gold-height: calc(var(--partner-support-height) * 2);
+  --partner-platinum-height: calc(var(--partner-support-height) * 4);
+  --partner-gold-height: calc(var(--partner-support-height) * 3);
+  --partner-silver-height: calc(var(--partner-support-height) * 2);
+  --partner-bronze-height: calc(var(--partner-support-height) * 1.5);
+  --partner-maxi-height: calc(var(--partner-support-height) * 4);
 
   --animation: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 

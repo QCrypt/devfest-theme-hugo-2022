@@ -38,16 +38,35 @@
   }
 }
 
-.partners-group.partner-platinium ul li {
+.partners-group.partner-platinum ul li {
   height: var(--partner-platinum-height);
+  flex-basis: 360px;
+}
+
+.partners-group.partner-gold ul li {
+  height: var(--partner-gold-height);
   flex-basis: 320px;
 }
 
-.partners-group.partner-gold ul li, .partners-group.partner-startup ul li {
-  height: var(--partner-gold-height);
+.partners-group.partner-silver ul li {
+  height: var(--partner-silver-height);
+  flex-basis: 280px;
+}
+
+.partners-group.partner-bronze ul li {
+  height: var(--partner-bronze-height);
+  flex-basis: 240px;
+}
+
+.partners-group.partner-community ul li {
+  height: var(--partner-community-height);
   flex-basis: 200px;
 }
 
+.partners-group.partner-maxi ul li {
+  height: var(--partner-maxi-height);
+  flex-basis: 350px;
+}
 
 /* Partner fancy name */
 
@@ -83,9 +102,9 @@
 }
 
 
-.partners-group.partner-platinium .fancy {
-  font-size: 1.5em;
-  color: var(--color-platium);
+.partners-group.partner-platinum .fancy {
+  font-size: 2em;
+  color: var(--color-platinum);
 
   span:before, span:after {
     border-bottom: 1px solid currentColor;
@@ -94,12 +113,33 @@
 }
 
 .partners-group.partner-gold .fancy {
-  font-size: 1.33em;
+  font-size: 1.9em;
   color: var(--color-gold);
 
   span:before, span:after {
     top: 20%;
     border-bottom: 1px solid currentColor;
   }
+}
+
+.partners-group.partner-silver .fancy {
+  font-size: 1.8em;
+  color: var(--color-silver);
+
+  span:before, span:after {
+    top: 20%;
+    border-bottom: 0.5px solid currentColor;
+  }
+}
+
+.partners-group.partner-bronze .fancy {
+  font-size: 1.5em;
+  color: var(--color-bronze);
+
+}
+
+.partners-group.partner-maxi .fancy {
+  font-size: 1.5em;
+
 }
 
