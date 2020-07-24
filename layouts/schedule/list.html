@@ -1,8 +1,5 @@
 {{ define "main" }}
 
-
-{{ .Content }}
-
 {{ $lang := $.Page.Language.Lang }}
 
 <nav class="day-tabs">
@@ -23,6 +20,9 @@
 
 
 <section class="schedule">
+	<span class="timezone">
+		Times are shown in: Central European Time - Amsterdam
+	</span>
 	{{ range $day := $.Site.Data.schedule }}
 	{{ $time := split $day.start ":" }}
 	{{ $dayStartH := index $time 0 }}
@@ -59,6 +59,9 @@
 </section>
 
 <!--<a href="#" class="goto-top" aria-label="Top">⬆︎</a>-->
+
+{{ .Content }}
+
 
 {{ end }}
 

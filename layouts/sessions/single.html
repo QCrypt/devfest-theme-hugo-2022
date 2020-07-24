@@ -1,8 +1,6 @@
 {{ define "main" }}
 {{ $papers := $.Site.Data.accepted_final }}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <section class="talk">
 
 	{{ if.Params.tags }}
@@ -82,4 +80,8 @@
 	</div>
 
 </section>
+{{ end }}
+
+{{ define "scripts" }}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 {{ end }}
