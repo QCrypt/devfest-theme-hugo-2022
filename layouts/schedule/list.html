@@ -21,7 +21,7 @@
 
 <section class="schedule">
 	<span class="timezone">
-		Times are shown in: Central European Time - Amsterdam
+		Schedule is still subject to change. Times are shown in: Central European Time - Amsterdam. 
 	</span>
 	{{ range $day := $.Site.Data.schedule }}
 	{{ $time := split $day.start ":" }}
@@ -61,7 +61,6 @@
 <!--<a href="#" class="goto-top" aria-label="Top">⬆︎</a>-->
 
 {{ .Content }}
-
 
 {{ end }}
 
