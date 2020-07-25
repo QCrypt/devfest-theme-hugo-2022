@@ -5,7 +5,7 @@
 	{{ $authors := .authors}}
 	<div class="paper-authors">
 		{{ range $key, $author := .authors }}
-		  {{ $author.first }} {{ $author.last }} ({{ $author.affiliation}}){{ if ne $key (sub (len $authors) 1) }};{{ else }}{{ end }}
+		  {{ $author.first }} {{ $author.last }}{{ if ne $key (sub (len $authors) 1) }};{{ else }}{{ end }}
 		{{ end }}
 	</div>
 

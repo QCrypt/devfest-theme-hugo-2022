@@ -44,15 +44,18 @@
 
 			<ul class="paper-list">
 			  {{ range $pid := .Params.papers }}
-				<li>
 					{{ $paper := index (where $papers "pid" (int $pid) ) 0 }}
-				  {{ partial "paper.html" $paper }}
-					{{ if isset $paper "mergedwith" }}
-	  				{{ $mergedpaper := index (where $papers "pid" $paper.mergedwith) 0 }}
-		   			merged with
-			  		{{ partial "paper.html" $mergedpaper}}
-					{{ end }}
-				</li>
+					{{/* display if no merge, or if the id of the paper merged with is higher than own id */}}
+					{{ if or (not (isset $paper "mergedwith")) (gt $paper.mergedwith $paper.pid) }}
+		  			<li>
+					  {{ partial "paper.html" $paper }}
+						{{ if isset $paper "mergedwith" }}
+		  				{{ $mergedpaper := index (where $papers "pid" $paper.mergedwith) 0 }}
+			   			merged with
+				  		{{ partial "paper.html" $mergedpaper}}
+						{{ end }}
+	  				</li>
+			 		{{ end }}
 				{{ end }}
 			</ul>
 			<div class="content">{{ .Content }}</div>
