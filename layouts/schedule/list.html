@@ -2,27 +2,8 @@
 
 {{ $lang := $.Page.Language.Lang }}
 
-<nav class="day-tabs">
-	{{ range $day := $.Site.Data.schedule }}
-	<a href="#day_{{$day.day}}">{{- partial "date-long.html" (dict "time" .day "lang" $lang) }}</a>
-	{{ end }}
-</nav>
-
-{{ $.Scratch.Set "maxEnd" 0 }}
-{{ range $.Site.Data.slots }}
-	{{ if gt .row.end ($.Scratch.Get "maxEnd") }}
-	{{ $.Scratch.Set "maxEnd" .row.end }}
-	{{ end}}
-{{ end }}
-
-{{ $maxEnd := $.Scratch.Get "maxEnd" }}
-
-
 
 <section class="schedule">
-	<span class="timezone">
-		Schedule is still subject to change. Times are shown in: Central European Time - Amsterdam. 
-	</span>
 	{{ range $day := $.Site.Data.schedule }}
 	{{ $time := split $day.start ":" }}
 	{{ $dayStartH := index $time 0 }}
@@ -32,6 +13,15 @@
 	{{ $dayEndM := index $time 1 }}
 
 	<article id="day_{{$day.day}}" class="day">
+		<nav class="day-tabs">
+			{{ range $day := $.Site.Data.schedule }}
+			<a href="#day_{{$day.day}}">{{- partial "date-long.html" (dict "time" .day "lang" $lang) }}</a>
+			{{ end }}
+		</nav>
+
+		<span class="timezone">
+			Schedule is still subject to change. Times are shown in: Central European Time - Amsterdam.
+		</span>
 
 		<ul class="talks">
 			{{ range $session := $day.sessions }}
