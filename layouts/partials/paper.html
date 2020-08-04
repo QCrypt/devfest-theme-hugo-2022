@@ -47,5 +47,25 @@
 	</div>
   {{ end }}
 
+	{{/* first make sure we are dealing with a poster here */}}
+  {{ if not (isset .options "talk-slot-1") }}
+	  {{ $formatted_pid := printf "%03.f" .pid }}
+	  {{ $prefix := delimit (slice "QCrypt2020Poster" $formatted_pid) "" }}
+	  {{/* figure out if a PDF with that id exists in the poster directory */}}
+		{{ $filename := "" }}
+		{{ range (readDir "/static/posters") }}
+		  {{ if hasPrefix .Name $prefix }}
+			  {{ $filename = .Name }}
+			{{ end }}
+		{{ end }}
+		<div class="poster-pdf">
+		{{ if ne $filename "" }}
+	 		<a href="/posters/{{ $filename }}" download>[PDF]</a>
+		{{ else }}
+		  [no PDF yet]
+		{{ end }}
+  	</div>
+
+	{{ end }}
 
 </div>

@@ -8,11 +8,11 @@
 		{{ .Inner }}
 	</div>
 
-	<ul class="paper-list">
+	<ul class="poster-list">
 		{{ range $paper := $papers }}
 		  {{/* display if no merge, or if the id of the paper merged with is higher than own id */}}
 			{{ if or (not (isset $paper "mergedwith")) (gt $paper.mergedwith $paper.pid) }}
-  			<li>
+			  <li value="{{ $paper.pid }}">
   			{{ partial "paper.html" $paper }}
 
 				{{ if isset $paper "mergedwith" }}

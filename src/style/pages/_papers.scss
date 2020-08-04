@@ -1,6 +1,6 @@
 .papers {
 
-  .paper-list {
+  .poster-list {
     list-style: decimal;
 
     .paper-single {
@@ -34,6 +34,11 @@
     .paper-youtubeid {
       display: inline;
     }
+
+    .poster-pdf {
+      display: inline;
+    }
+
 
   }
 }
