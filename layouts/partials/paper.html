@@ -30,9 +30,8 @@
 	  {{ if .id }}
 			<a href="https://youtu.be/{{ .id }}" target="_blank">[YouTube,
 				{{ if isset $options "presenter-prerecorded-talk" }}
-					presented by {{ index $options "presenter-prerecorded-talk" }}
-			  {{ end }}
-				]</a>
+					presented by {{ index $options "presenter-prerecorded-talk" -}}
+			  {{ end }}]</a>
 		{{ else }}
 		{{ if isset $options "presenter-prerecorded-talk" }}
 			[YouTube, still waiting for {{ index $options "presenter-prerecorded-talk" }}]
