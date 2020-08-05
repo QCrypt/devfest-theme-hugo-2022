@@ -19,14 +19,28 @@
 			{{ end }}
 		</nav>
 
-		<span class="timezone">
+		Regular sessions take place on
+		<a class="btn primary" href="/online-conference/#the-zoom-webinar">
+			<svg class="icon icon-link">
+			<use xlink:href="#link"></use>
+		</svg>zoom webinar.
+		</a>
+		<span class="tag-break">Sessions marked with color</span> take place in our
+		<a class="btn primary" href="/online-conference/#the-meet--greet-room">
+			<svg class="icon icon-link">
+			<use xlink:href="#link"></use>
+		</svg>virtual meet & greet room
+		</a>
+
+		<div class="timezone">
 			Date and time are shown in:
 			<a class="btn primary" href="https://www.timeanddate.com/worldclock/personal.html?cities=16,33,165,248,224,176,136&wch=3" target="_blank">
 				<svg class="icon icon-link">
 				<use xlink:href="#link"></use>
 			</svg>Central European Time - Amsterdam
 			</a>
-		</span>
+		</div>
+
 
 		<ul class="talks">
 			{{ range $session := $day.sessions }}
