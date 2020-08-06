@@ -4,7 +4,10 @@
 	<div class="card" style="background-image: url({{ .Params.logo }});"></div>
 	<h1>{{ .Title }}</h1>
 	{{ if .Params.website }}
-	<a href="{{ .Params.website }}">{{ .Params.website }}</a>
+	{{ if not (hasPrefix .Params.website "/") }}
+	{{/* if website is an internal link, do not display it! */}}
+  	<a href="{{ .Params.website }}">{{ .Params.website }}</a>
+	{{ end }}
 	{{ end }}
 </section>
 
