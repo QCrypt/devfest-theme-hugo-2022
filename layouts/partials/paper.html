@@ -65,6 +65,14 @@
 		{{ end }}
   	</div>
 
+		{{ if isset .options "name-main-presenter" }}
+		<div class="poster-presenter">
+			Poster presenter: {{ index .options "name-main-presenter" }}
+		</div>
+	  {{ end }}
+
+
+
 	{{ end }}
 
 </div>

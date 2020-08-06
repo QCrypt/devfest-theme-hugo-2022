@@ -1,6 +1,14 @@
 {{ $_hugo_config := `{ "version": 1 }` }}
 {{ $site := .Site }}
+
+{{ $session := .Get "session" }}
+
 {{ $papers := $.Site.Data.posters }}
+{{ if eq $session "tue_afternoon" }}
+  {{ $papers = $.Site.Data.poster_tue_afternoon }}
+{{ else if eq $session "thu_morning" }}
+  {{ $papers = $.Site.Data.poster_thu_morning }}
+{{ end }}
 
 <section class="papers">
 	{{/* fix as suggested in https://github.com/gohugoio/hugo/issues/6984#issuecomment-617879910 */}}
