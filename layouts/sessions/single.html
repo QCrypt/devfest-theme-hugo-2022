@@ -1,7 +1,9 @@
 {{ define "main" }}
 {{ $papers := $.Site.Data.accepted_final }}
 
+
 <section class="talk">
+
 
 	{{ if.Params.tags }}
 	<header class="tag-{{ anchorize (delimit .Params.tags "" ) }}">
@@ -25,6 +27,28 @@
 		<div class="complexity">{{ .Params.level }}</div>
 		{{ end }}
 		<div class="type type-{{ anchorize .Params.format }}">{{ .Params.format }}</div>
+
+		{{ $sessionname := .File.TranslationBaseName }}
+		{{ if not (hasPrefix $sessionname "__") }}
+
+		{{/* figure out when this session is running from schedule */}}
+		{{ $startday := "" }}
+		{{ $starttime := "" }}
+		{{ $endtime := "" }}
+		{{ range $day := $.Site.Data.schedule }}
+		  {{ range $session := $day.sessions }}
+  			{{ if and (ne $starttime "") (eq $endtime "") }}
+		  		 {{ $endtime = $session.time }}
+			  {{ else if eq $session.session $sessionname }}
+				  {{ $startday = $day.day }}
+					{{ $starttime = $session.time }}
+		  	{{ end }}
+			{{ end }}
+		{{ end }}
+
+		<div class="time">{{- partial "date-long.html" (dict "time" $startday "lang" "en") -}}, {{ $starttime }} - {{ $endtime }}</div>
+
+		{{ end }}
 
 		<div class="detail">
 			<ul class="speakers">
