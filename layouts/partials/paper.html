@@ -61,9 +61,16 @@
 
 		{{ if isset .options "name-main-presenter" }}
 		<div class="poster-presenter">
-			Poster presenter: {{ index .options "name-main-presenter" }}
+			Poster presented by: {{ index .options "name-main-presenter" }}
+			{{ range first 1 (where site.Data.poster_floors "pid" .pid) }}
+			  {{ if .floor }}
+						on Floor {{ .floor }}
+			  {{ end }}
+			{{ end }}
 		</div>
 	  {{ end }}
+
+
 
 	{{ else }}
 	{{/* we have a contributed paper here */}}
