@@ -10,8 +10,9 @@
   }
 
   .paper-id {
-    display: none;
+    display: block;
   }
+
   .paper-title {
     display: inline;
     font-weight: bold;
@@ -34,6 +35,11 @@
   }
 
   .paper-youtubeid {
+    display: inline;
+    padding-left: var(--space-1);
+  }
+
+  .paper-slides {
     display: inline;
     padding-left: var(--space-1);
   }

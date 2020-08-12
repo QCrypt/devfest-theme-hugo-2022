@@ -1,7 +1,6 @@
 {{ $youtube := site.Data.youtube }}
 
 <div class="paper-single">
-	<div class="paper-id">#{{ .pid }}:</div>
 	<div class="paper-title">{{ .title }}</div>
 
 	{{ $authors := .authors }}
@@ -40,11 +39,6 @@
 	{{ end }}
   </div>
 
-	{{ if isset .options "presenter-live-session" }}
-	<div class="paper-presenter-live-session">
-		Presenter live session: {{ index .options "presenter-live-session" }}
-	</div>
-  {{ end }}
 
 	{{/* first make sure we are dealing with a poster here */}}
   {{ if not (isset .options "talk-slot-1") }}
@@ -71,7 +65,31 @@
 		</div>
 	  {{ end }}
 
+	{{ else }}
+	{{/* we have a contributed paper here */}}
+	  {{ $formatted_pid := printf "%03.f" .pid }}
+	  {{ $prefix := delimit (slice "QCrypt2020TalkSlides" $formatted_pid) "" }}
+	  {{/* figure out if a PDF with that id exists in the poster directory */}}
+	  {{ $filename := "" }}
+	  {{ range (readDir "/static/slides") }}
+		  {{ if hasPrefix .Name $prefix }}
+			  {{ $filename = .Name }}
+		  {{ end }}
+	  {{ end }}
+	  <div class="paper-slides">
+	  {{ if ne $filename "" }}
+		  <a href="/slides/{{ $filename }}" target="_blank">[slides]</a>
+	  {{ end }}
+	  </div>
 
+
+  	{{ if isset .options "presenter-live-session" }}
+	  <div class="paper-presenter-live-session">
+		  Presenter live session: {{ index .options "presenter-live-session" }}
+	  </div>
+	  {{ end }}
+
+	  <div class="paper-id">submission #{{ .pid }}</div>
 
 	{{ end }}
 
