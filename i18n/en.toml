@@ -67,6 +67,9 @@ other = "QCrypt Charter"
 [footer_extra]
 other = "Extra Material"
 
+[footer_call]
+other = "Call for Papers"
+
 [footer_poster]
 other = "Poster, Logos and Templates"
 
