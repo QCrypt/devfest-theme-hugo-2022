@@ -6,6 +6,9 @@ It's developed for the 2019 version of Devfest Toulouse.
 
 See a real usage here: <https://2019.devfesttoulouse.fr/>
 
+*This version has been adapted for the QCrypt 2020 website!* 
+<https://2020.qcrypt.net> <https://github.com/QCrypt/public-website>
+
 ## Building my conference site from scratch
 
 1. Install [Hugo](https://gohugo.io)
