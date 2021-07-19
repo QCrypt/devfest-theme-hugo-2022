@@ -41,7 +41,7 @@
 
 
 	{{/* first make sure we are dealing with a poster here */}}
-  {{ if not (isset .options "talk-slot-1") }}
+  {{ if eq .decision "Poster" }}
 	  {{ $formatted_pid := printf "%03.f" .pid }}
 	  {{ $prefix := delimit (slice "QCrypt2020Poster" $formatted_pid) "" }}
 	  {{/* figure out if a PDF with that id exists in the poster directory */}}
@@ -96,7 +96,7 @@
 	  </div>
 	  {{ end }}
 
-	  <div class="paper-id">submission #{{ .pid }}</div>
+	  <!-- <div class="paper-id">submission #{{ .pid }}</div> -->
 
 	{{ end }}
 
