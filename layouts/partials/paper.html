@@ -12,7 +12,7 @@
 	</div>
 
 	<div class="paper-abstract">
-		<a onclick="$('#abstract-{{ .pid }}').toggle(200); return false">[abstract]</a>
+		<a style="color:#4c9cde;" onclick="$('#abstract-{{ .pid }}').toggle(200); return false">[abstract]</a>
 		<div class="paper-abstract-full" id="abstract-{{.pid}}" style="display:none">
 			<b>Abstract:</b> {{ .abstract }}
 		</div>
