@@ -26,7 +26,9 @@
 		{{ if .Params.level }}
 		<div class="complexity">{{ .Params.level }}</div>
 		{{ end }}
-		<div class="type type-{{ anchorize .Params.format }}">{{ .Params.format }}</div>
+		{{ if .Params.format }}
+        <div class="type type-{{ anchorize .Params.format }}">{{ .Params.format }}</div>
+        {{ end }}
 
 		{{ $sessionname := .File.TranslationBaseName }}
 		{{ if not (hasPrefix $sessionname "__") }}
