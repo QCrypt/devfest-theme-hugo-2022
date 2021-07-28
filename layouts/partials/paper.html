@@ -43,7 +43,7 @@
 	{{/* first make sure we are dealing with a poster here */}}
   {{ if eq .decision "Poster" }}
 	  {{ $formatted_pid := printf "%03.f" .pid }}
-	  {{ $prefix := delimit (slice "QCrypt2020Poster" $formatted_pid) "" }}
+	  {{ $prefix := delimit (slice "QCrypt2021Poster" $formatted_pid) "" }}
 	  {{/* figure out if a PDF with that id exists in the poster directory */}}
 		{{ $filename := "" }}
 		{{ range (readDir "/static/posters") }}
@@ -75,7 +75,7 @@
 	{{ else }}
 	{{/* we have a contributed paper here */}}
 	  {{ $formatted_pid := printf "%03.f" .pid }}
-	  {{ $prefix := delimit (slice "QCrypt2020TalkSlides" $formatted_pid) "" }}
+	  {{ $prefix := delimit (slice "QCrypt2021TalkSlides" $formatted_pid) "" }}
 	  {{/* figure out if a PDF with that id exists in the poster directory */}}
 	  {{ $filename := "" }}
 	  {{ range (readDir "/static/slides") }}
