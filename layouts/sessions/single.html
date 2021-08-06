@@ -31,6 +31,9 @@
         {{ end }}
 
 		{{ $sessionname := .File.TranslationBaseName }}
+        {{ if (hasPrefix $sessionname "industry") }}
+            {{ $sessionname = "industrial" }}
+        {{ end }}
 		{{ if not (hasPrefix $sessionname "__") }}
 
 		{{/* figure out when this session is running from schedule */}}
