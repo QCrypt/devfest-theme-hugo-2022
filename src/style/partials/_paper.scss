@@ -1,5 +1,8 @@
 .paper-list {
   list-style: decimal;
+  a {
+    color: var(--primary-link);
+  }
 
   .paper-single {
     padding: var(--space-1) var(--space-3);
