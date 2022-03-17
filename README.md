@@ -6,9 +6,9 @@ It's developed for the 2019 version of Devfest Toulouse.
 
 See a real usage here: <https://2019.devfesttoulouse.fr/>
 
-**This version has been adapted for the QCrypt 2021 website!** 
-<https://2021.qcrypt.net> 
-<https://github.com/QCrypt/website-2021>
+**This version has been adapted for the QCrypt 2022 website!**
+<https://2022.qcrypt.net>
+<https://github.com/QCrypt/website-2022>
 
 ## Building my conference site from scratch
 
@@ -168,7 +168,7 @@ content:
 
 ### Home
 
-The Home page is build with markdown and calling some shortcodes. 
+The Home page is build with markdown and calling some shortcodes.
 
 #### Jumbo bloc
 
@@ -192,7 +192,7 @@ With main description and key figures.
 {{% home-info what="Participants:900,Day:1,Sessions:36,Parallel Tracks:4" class="primary" %}}
 ## What is DevFest Toulouse?
 
-The DevFest, or 'Developers Festival', is a technical conference for developers. 
+The DevFest, or 'Developers Festival', is a technical conference for developers.
 It is aimed at students, professionals or simply curious technophiles.
 {{% /home-info %}}
 ```
@@ -334,7 +334,7 @@ Show your partners
 
 ### Partners
 
-A partner should have this params : 
+A partner should have this params :
 
 ```yaml
 title: NAME
@@ -351,7 +351,7 @@ A speaker should have this params :
 
 ```yaml
 id: jane_doe
-name: Mme Jane Doe 
+name: Mme Jane Doe
 company: Super Company
 featured: false
 photo: /images/speakers/jane_doe.jpg
