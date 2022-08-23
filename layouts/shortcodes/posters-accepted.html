@@ -8,6 +8,9 @@
   {{ $papers = $.Site.Data.poster_tue_afternoon }}
 {{ else if eq $session "thu_morning" }}
   {{ $papers = $.Site.Data.poster_thu_morning }}
+{{ else if eq $session "thu_afternoon" }}
+  {{ $papers = $.Site.Data.poster_thu_afternoon }}
+
 {{ end }}
 
 <section class="papers">
